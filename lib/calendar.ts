@@ -25,8 +25,30 @@ const toYmd = (value: string): string => value.replace(/-/g, "");
 const buildDateTime = (date: string, time: string): string =>
   `${toYmd(date)}T${time.replace(":", "")}00`;
 
+const parseDateParts = (date: string): [number, number, number] => {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
+  if (!match) throw new Error("Invalid date format. Use YYYY-MM-DD.");
+
+  const [, yearStr, monthStr, dayStr] = match;
+  const year = Number(yearStr);
+  const month = Number(monthStr);
+  const day = Number(dayStr);
+  const candidate = new Date(Date.UTC(year, month - 1, day));
+
+  if (
+    candidate.getUTCFullYear() !== year ||
+    candidate.getUTCMonth() !== month - 1 ||
+    candidate.getUTCDate() !== day
+  ) {
+    throw new Error("Invalid calendar date.");
+  }
+
+  return [year, month, day];
+};
+
 const nextDayYmd = (date: string): string => {
-  const dt = new Date(`${date}T00:00:00Z`);
+  const [year, month, day] = parseDateParts(date);
+  const dt = new Date(Date.UTC(year, month - 1, day));
   dt.setUTCDate(dt.getUTCDate() + 1);
   return dt.toISOString().slice(0, 10).replace(/-/g, "");
 };

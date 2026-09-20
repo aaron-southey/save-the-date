@@ -11,7 +11,20 @@ export async function generateMetadata({ searchParams }: HomePageProps): Promise
   const params = await searchParams;
   const invitee = getInviteeFromQueryObject(params);
 
-  if (!invitee) return {};
+  if (!invitee) {
+    return {
+      title: wedding.site.title,
+      description: wedding.site.description,
+      openGraph: {
+        title: wedding.site.title,
+        description: wedding.site.description,
+      },
+      twitter: {
+        title: wedding.site.title,
+        description: wedding.site.description,
+      },
+    };
+  }
 
   return {
     title: `${wedding.site.title} — For ${invitee}`,

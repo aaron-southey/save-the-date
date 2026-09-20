@@ -42,7 +42,7 @@ export function OpeningTransition({ onComplete, onSkip, invitee }: OpeningTransi
     if (reduceMotion) {
       setReleased(true);
       setCardReveal(true);
-      onComplete();
+      schedule(onComplete, 260);
       return;
     }
 
