@@ -13,6 +13,27 @@
 
 body {
   color: #2e2826;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.safe-top {
+  top: max(1rem, env(safe-area-inset-top));
+}
+
+.safe-bottom {
+  bottom: max(1rem, env(safe-area-inset-bottom));
 }
 
 .paper-bg {

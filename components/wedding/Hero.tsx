@@ -6,7 +6,7 @@ import { wedding } from "@/lib/wedding";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden" aria-label="Hero">
+    <section className="relative min-h-[100dvh] overflow-hidden" aria-label="Hero">
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.08, opacity: 0.8 }}
@@ -24,10 +24,10 @@ export function Hero() {
       </motion.div>
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(17,14,12,0.18),rgba(17,14,12,0.55))]" />
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl items-end px-6 pb-20 sm:px-10 sm:pb-24">
+      <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-6xl items-end px-6 pb-16 sm:px-10 sm:pb-24">
         <div>
           <motion.h1
-            className="font-serif text-5xl text-[#f7f2ea] sm:text-7xl md:text-8xl"
+            className="font-serif text-4xl text-[#f7f2ea] sm:text-7xl md:text-8xl"
             initial={{ y: 24, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.1, delay: 0.2 }}
@@ -35,7 +35,7 @@ export function Hero() {
             {wedding.couple.names}
           </motion.h1>
           <motion.p
-            className="mt-5 text-sm uppercase tracking-[0.3em] text-[#f2e7d8]"
+            className="mt-4 text-[11px] uppercase tracking-[0.25em] text-[#f2e7d8] sm:text-sm sm:tracking-[0.3em]"
             initial={{ y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.45 }}
@@ -43,7 +43,7 @@ export function Hero() {
             {wedding.dateDisplay}
           </motion.p>
           <motion.p
-            className="mt-3 text-base tracking-[0.12em] text-[#f2e7d8] sm:text-lg"
+            className="mt-2 text-sm tracking-[0.08em] text-[#f2e7d8] sm:mt-3 sm:text-lg sm:tracking-[0.12em]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.65 }}
