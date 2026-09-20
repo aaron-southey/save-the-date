@@ -15,7 +15,7 @@ export function Hero() {
       >
         <Image
           src={wedding.images.hero}
-          alt=""
+          alt="Editorial portrait placeholder for Aaron and Charlotte."
           fill
           priority
           className="object-cover"

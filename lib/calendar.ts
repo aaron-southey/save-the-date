@@ -54,6 +54,29 @@ const buildIcsContent = ({
   }
 
   const isAllDay = !hasStart && !hasEnd;
+  const timezoneLines =
+    !isAllDay && timezone === "Europe/London"
+      ? [
+          "BEGIN:VTIMEZONE",
+          "TZID:Europe/London",
+          "X-LIC-LOCATION:Europe/London",
+          "BEGIN:DAYLIGHT",
+          "TZOFFSETFROM:+0000",
+          "TZOFFSETTO:+0100",
+          "TZNAME:BST",
+          "DTSTART:19700329T010000",
+          "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU",
+          "END:DAYLIGHT",
+          "BEGIN:STANDARD",
+          "TZOFFSETFROM:+0100",
+          "TZOFFSETTO:+0000",
+          "TZNAME:GMT",
+          "DTSTART:19701025T020000",
+          "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU",
+          "END:STANDARD",
+          "END:VTIMEZONE",
+        ]
+      : [];
   const eventLines = isAllDay
     ? [`DTSTART;VALUE=DATE:${toYmd(date)}`, `DTEND;VALUE=DATE:${nextDayYmd(date)}`]
     : [
@@ -67,6 +90,7 @@ const buildIcsContent = ({
     "PRODID:-//Aaron and Charlotte//Wedding Invitation//EN",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
+    ...timezoneLines,
     "BEGIN:VEVENT",
     `UID:${uid}`,
     `DTSTAMP:${created}`,

@@ -25,7 +25,11 @@ export function CalendarButton() {
       >
         Add to calendar
       </MagneticButton>
-      {message ? <p className="mt-3 max-w-sm text-xs text-[#645a53]">{message}</p> : null}
+      {message ? (
+        <p className="mt-3 max-w-sm text-xs text-[#645a53]" role="status" aria-live="polite">
+          {message}
+        </p>
+      ) : null}
     </div>
   );
 }

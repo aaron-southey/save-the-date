@@ -18,7 +18,7 @@ export function Venue() {
       >
         <Image
           src={wedding.images.venue}
-          alt=""
+          alt={`Venue image placeholder for ${wedding.venue.name}.`}
           fill
           className="object-cover"
           sizes="100vw"

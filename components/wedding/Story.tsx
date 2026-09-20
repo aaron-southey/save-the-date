@@ -15,7 +15,7 @@ export function Story() {
       </div>
       <ImageReveal
         src={wedding.images.story}
-        alt=""
+        alt="Story section image placeholder for Aaron and Charlotte."
         width={1200}
         height={1500}
         className="h-[26rem] w-full object-cover sm:h-[34rem]"

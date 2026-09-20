@@ -12,9 +12,15 @@ type Remaining = {
 };
 
 const getRemaining = (targetDate: string): Remaining => {
-  const target = new Date(`${targetDate}T00:00:00Z`).getTime();
-  const now = Date.now();
-  const diff = Math.max(target - now, 0);
+  const [year, month, day] = targetDate.split("-").map(Number);
+  const target = Date.UTC(year, month - 1, day);
+  const nowDate = new Date();
+  const todayUtc = Date.UTC(
+    nowDate.getUTCFullYear(),
+    nowDate.getUTCMonth(),
+    nowDate.getUTCDate(),
+  );
+  const diff = Math.max(target - todayUtc, 0);
   const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
   return { days, weeks: Math.ceil(days / 7) };
 };

@@ -17,7 +17,7 @@ export function Gallery() {
           >
             <Image
               src={src}
-              alt=""
+              alt={`Editorial gallery image placeholder ${index + 1} for Aaron and Charlotte.`}
               width={1600}
               height={1000}
               className="h-[16rem] w-full object-cover sm:h-[22rem]"
