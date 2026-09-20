@@ -22,8 +22,16 @@ const formatUtcStamp = (date: Date): string =>
 
 const toYmd = (value: string): string => value.replace(/-/g, "");
 
-const buildDateTime = (date: string, time: string): string =>
-  `${toYmd(date)}T${time.replace(":", "")}00`;
+const parseTime = (time: string): [string, string] => {
+  const match = /^([01]\d|2[0-3]):([0-5]\d)$/.exec(time);
+  if (!match) throw new Error("Invalid time format. Use HH:mm.");
+  return [match[1], match[2]];
+};
+
+const buildDateTime = (date: string, time: string): string => {
+  const [hours, minutes] = parseTime(time);
+  return `${toYmd(date)}T${hours}${minutes}00`;
+};
 
 const parseDateParts = (date: string): [number, number, number] => {
   const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
