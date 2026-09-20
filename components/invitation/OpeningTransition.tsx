@@ -7,11 +7,10 @@ import { InvitationCard } from "@/components/invitation/InvitationCard";
 
 type OpeningTransitionProps = {
   onComplete: () => void;
-  onSkip: () => void;
   invitee: string | null;
 };
 
-export function OpeningTransition({ onComplete, onSkip, invitee }: OpeningTransitionProps) {
+export function OpeningTransition({ onComplete, invitee }: OpeningTransitionProps) {
   const reduceMotion = useReducedMotion();
   const [pressed, setPressed] = useState(false);
   const [released, setReleased] = useState(false);
@@ -68,14 +67,6 @@ export function OpeningTransition({ onComplete, onSkip, invitee }: OpeningTransi
   return (
     <section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden px-4 paper-bg">
       <div className="paper-grain pointer-events-none absolute inset-0" />
-
-      <button
-        type="button"
-        onClick={onSkip}
-        className="safe-top absolute right-4 z-30 min-h-11 rounded-full border border-[#cdbca9] px-5 py-2 text-xs uppercase tracking-[0.2em] text-[#5f564f] transition hover:bg-[#efe5d6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8f7461] sm:right-6"
-      >
-        Skip intro
-      </button>
 
       <motion.div
         className="relative"
