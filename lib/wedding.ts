@@ -26,11 +26,22 @@ export const wedding = {
   },
   story: {
     heading: "Our Story",
-    intro: "[ADD STORY COPY]",
+    intro:
+      "We met 10 years ago on 26th April 2016, and every chapter since has felt like home. From quiet Sundays to big adventures, we’ve built a life full of laughter, loyalty, and love.",
+    outro:
+      "Now we can’t wait to celebrate the next chapter with the people who mean the most to us.",
+  },
+  dog: {
+    name: "Spark",
+    heading: "And of course, Spark",
+    intro:
+      "Spark is our very naughty little sausage dog — full of personality, always under our feet, and always making us laugh.",
+    imageAlt: "Portrait placeholder for Spark, Aaron and Charlotte's sausage dog.",
   },
   images: {
     hero: "/images/couple-hero.svg",
     story: "/images/story-placeholder.svg",
+    dog: "/images/spark-placeholder.svg",
     venue: "/images/venue-placeholder.svg",
     gallery: [
       "/images/gallery-1.svg",

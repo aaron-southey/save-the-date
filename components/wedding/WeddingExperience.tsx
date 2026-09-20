@@ -3,6 +3,7 @@ import { DateSection } from "@/components/wedding/DateSection";
 import { FinalSection } from "@/components/wedding/FinalSection";
 import { Gallery } from "@/components/wedding/Gallery";
 import { Hero } from "@/components/wedding/Hero";
+import { SparkSection } from "@/components/wedding/SparkSection";
 import { Story } from "@/components/wedding/Story";
 import { Venue } from "@/components/wedding/Venue";
 
@@ -26,6 +27,7 @@ export function WeddingExperience({ onReplayInvitation, invitee }: WeddingExperi
 
       <Hero invitee={invitee} />
       <Story />
+      <SparkSection />
       <DateSection />
       <Gallery />
       <Venue />

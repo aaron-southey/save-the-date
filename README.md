@@ -20,11 +20,15 @@ Place final images in `/public/images` and keep/update these paths in `lib/weddi
 - `/images/gallery-2.svg`
 - `/images/gallery-3.svg`
 - `/images/gallery-4.svg`
+- `/images/spark-placeholder.svg`
 - `/images/og-placeholder.svg`
 
 ## Central config
 
 Update all wedding content in `lib/wedding.ts`.
+
+- Story wording is under `wedding.story`
+- Dog section content is under `wedding.dog` (Spark)
 
 ## Calendar download
 
