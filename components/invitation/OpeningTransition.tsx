@@ -40,7 +40,7 @@ export function OpeningTransition({ onComplete, onSkip }: OpeningTransitionProps
     if (reduceMotion) {
       setReleased(true);
       setCardReveal(true);
-      schedule(onComplete, 220);
+      onComplete();
       return;
     }
 

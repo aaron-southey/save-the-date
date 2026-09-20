@@ -10,7 +10,11 @@ export function Gallery() {
       <p className="text-xs uppercase tracking-[0.26em] text-[#756a63]">Photography</p>
       <div className="mt-10 grid gap-4 md:grid-cols-3">
         {wedding.images.gallery.map((src, index) => (
-          <FadeIn key={src} className={`overflow-hidden rounded-sm ${spans[index]}`} delay={index * 0.08}>
+          <FadeIn
+            key={src}
+            className={`overflow-hidden rounded-sm ${spans[index % spans.length]}`}
+            delay={index * 0.08}
+          >
             <Image
               src={src}
               alt=""
