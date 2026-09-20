@@ -9,9 +9,10 @@ type EnvelopeProps = {
   released: boolean;
   flapOpen: boolean;
   disabled?: boolean;
+  invitee: string | null;
 };
 
-export function Envelope({ onOpen, pressed, released, flapOpen, disabled }: EnvelopeProps) {
+export function Envelope({ onOpen, pressed, released, flapOpen, disabled, invitee }: EnvelopeProps) {
   return (
     <div className="relative w-[min(90vw,680px)]">
       <motion.div
@@ -40,7 +41,9 @@ export function Envelope({ onOpen, pressed, released, flapOpen, disabled }: Enve
         <WaxSeal onOpen={onOpen} isPressed={pressed} isReleased={released} disabled={disabled} />
       </motion.div>
 
-      <p className="mt-10 text-center text-sm tracking-[0.22em] text-[#6f625a]">A little something for you</p>
+      <p className="mt-10 text-center text-sm tracking-[0.22em] text-[#6f625a]">
+        {invitee ? `A little something for ${invitee}` : "A little something for you"}
+      </p>
       <p className="mt-3 text-center text-xs uppercase tracking-[0.3em] text-[#8f8178]">Open invitation</p>
     </div>
   );

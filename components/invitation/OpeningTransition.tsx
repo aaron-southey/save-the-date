@@ -8,9 +8,10 @@ import { InvitationCard } from "@/components/invitation/InvitationCard";
 type OpeningTransitionProps = {
   onComplete: () => void;
   onSkip: () => void;
+  invitee: string | null;
 };
 
-export function OpeningTransition({ onComplete, onSkip }: OpeningTransitionProps) {
+export function OpeningTransition({ onComplete, onSkip, invitee }: OpeningTransitionProps) {
   const reduceMotion = useReducedMotion();
   const [pressed, setPressed] = useState(false);
   const [released, setReleased] = useState(false);
@@ -81,9 +82,10 @@ export function OpeningTransition({ onComplete, onSkip }: OpeningTransitionProps
             released={released}
             flapOpen={flapOpen}
             disabled={opened}
+            invitee={invitee}
           />
 
-          <InvitationCard reveal={cardReveal} transitionOut={transitionOut} />
+          <InvitationCard reveal={cardReveal} transitionOut={transitionOut} invitee={invitee} />
         </motion.div>
       </AnimatePresence>
     </section>
