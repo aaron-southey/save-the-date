@@ -1,12 +1,10 @@
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
-import { CalendarButton } from "@/components/wedding/CalendarButton";
 import { DateSection } from "@/components/wedding/DateSection";
 import { FinalSection } from "@/components/wedding/FinalSection";
 import { Gallery } from "@/components/wedding/Gallery";
 import { Hero } from "@/components/wedding/Hero";
 import { Story } from "@/components/wedding/Story";
 import { Venue } from "@/components/wedding/Venue";
-import { wedding } from "@/lib/wedding";
 
 type WeddingExperienceProps = {
   onReplayInvitation: () => void;
@@ -31,14 +29,6 @@ export function WeddingExperience({ onReplayInvitation, invitee }: WeddingExperi
       <DateSection />
       <Gallery />
       <Venue />
-
-      <section className="mx-auto w-full max-w-6xl px-6 py-18 sm:px-10 sm:py-24 md:py-32">
-        <p className="font-serif text-4xl text-[#2f2826] sm:text-7xl">Save the date</p>
-        <p className="mt-6 text-sm uppercase tracking-[0.28em] text-[#746963]">{wedding.dateDisplay}</p>
-        <div className="mt-10">
-          <CalendarButton />
-        </div>
-      </section>
 
       <FinalSection />
     </main>
