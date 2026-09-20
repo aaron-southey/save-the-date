@@ -32,3 +32,13 @@ The **Add to calendar** button generates a client-side `.ics` file via `lib/cale
 
 - Leave both `start` and `end` empty in `lib/wedding.ts` for an all-day event.
 - Provide **both** `start` and `end` (HH:mm) for a timed event.
+
+## Invite personalisation via query params
+
+You can personalise the invitation for singles or couples:
+
+- Single: `/?name=Alex`
+- Couple: `/?name1=Alex&name2=Jordan`
+
+Supported single keys: `to`, `name`, `guest`, `invitee`, `person`  
+Supported pair keys: `name1/name2`, `guest1/guest2`, `first/second`

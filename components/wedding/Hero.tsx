@@ -4,7 +4,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { wedding } from "@/lib/wedding";
 
-export function Hero() {
+type HeroProps = {
+  invitee: string | null;
+};
+
+export function Hero({ invitee }: HeroProps) {
   return (
     <section className="relative min-h-[100dvh] overflow-hidden" aria-label="Hero">
       <motion.div
@@ -26,6 +30,16 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-6xl items-end px-6 pb-16 sm:px-10 sm:pb-24">
         <div>
+          {invitee ? (
+            <motion.p
+              className="mb-4 text-[11px] uppercase tracking-[0.24em] text-[#efe3d4] sm:text-xs"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            >
+              Invited: {invitee}
+            </motion.p>
+          ) : null}
           <motion.h1
             className="font-serif text-4xl text-[#f7f2ea] sm:text-7xl md:text-8xl"
             initial={{ y: 24, opacity: 0 }}

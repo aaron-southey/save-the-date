@@ -10,9 +10,10 @@ import { wedding } from "@/lib/wedding";
 
 type WeddingExperienceProps = {
   onReplayInvitation: () => void;
+  invitee: string | null;
 };
 
-export function WeddingExperience({ onReplayInvitation }: WeddingExperienceProps) {
+export function WeddingExperience({ onReplayInvitation, invitee }: WeddingExperienceProps) {
   return (
     <main className="paper-bg text-[#2c2624]">
       <ScrollProgress />
@@ -25,7 +26,7 @@ export function WeddingExperience({ onReplayInvitation }: WeddingExperienceProps
         View invitation again
       </button>
 
-      <Hero />
+      <Hero invitee={invitee} />
       <Story />
       <DateSection />
       <Gallery />
