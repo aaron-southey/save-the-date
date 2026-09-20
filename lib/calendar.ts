@@ -40,7 +40,11 @@ const buildIcsContent = ({
   start,
   end,
 }: CalendarConfig): string => {
-  const uid = `${Date.now()}@save-the-date`;
+  const uid = `${toYmd(date)}-${title}-${location}`
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    .concat("@save-the-date");
   const created = formatUtcStamp(new Date());
   const hasStart = Boolean(start);
   const hasEnd = Boolean(end);

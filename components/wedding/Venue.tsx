@@ -18,7 +18,7 @@ export function Venue() {
       >
         <Image
           src={wedding.images.venue}
-          alt="[ADD VENUE PHOTO]"
+          alt=""
           fill
           className="object-cover"
           sizes="100vw"

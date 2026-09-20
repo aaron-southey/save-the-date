@@ -15,7 +15,7 @@ export function Hero() {
       >
         <Image
           src={wedding.images.hero}
-          alt="[ADD COUPLE PHOTO]"
+          alt=""
           fill
           priority
           className="object-cover"
@@ -48,7 +48,7 @@ export function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.65 }}
           >
-            {wedding.venue.name} · Blagdon
+            {wedding.venue.name} · {wedding.venue.location}
           </motion.p>
         </div>
       </div>

@@ -13,7 +13,7 @@ export function Gallery() {
           <FadeIn key={src} className={`overflow-hidden rounded-sm ${spans[index]}`} delay={index * 0.08}>
             <Image
               src={src}
-              alt={`[ADD GALLERY PHOTO ${index + 1}]`}
+              alt=""
               width={1600}
               height={1000}
               className="h-[16rem] w-full object-cover sm:h-[22rem]"
