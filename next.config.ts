@@ -18,11 +18,6 @@ const nextConfig: NextConfig = {
             key: "X-Frame-Options",
             value: "DENY",
           },
-          {
-            key: "Content-Security-Policy",
-            value:
-              "default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
-          },
         ],
       },
     ];

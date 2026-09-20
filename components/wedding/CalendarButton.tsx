@@ -8,8 +8,12 @@ export function CalendarButton() {
   const [message, setMessage] = useState("");
 
   const onAddToCalendar = () => {
-    downloadWeddingCalendarEvent();
-    setMessage("If your calendar does not open automatically, use the downloaded .ics file.");
+    try {
+      downloadWeddingCalendarEvent();
+      setMessage("If your calendar does not open automatically, use the downloaded .ics file.");
+    } catch {
+      setMessage("Calendar configuration is incomplete. Please provide both start and end times, or leave both empty for an all-day event.");
+    }
   };
 
   return (

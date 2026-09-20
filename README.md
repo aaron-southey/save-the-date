@@ -29,3 +29,6 @@ Update all wedding content in `lib/wedding.ts`.
 ## Calendar download
 
 The **Add to calendar** button generates a client-side `.ics` file via `lib/calendar.ts`.
+
+- Leave both `start` and `end` empty in `lib/wedding.ts` for an all-day event.
+- Provide **both** `start` and `end` (HH:mm) for a timed event.

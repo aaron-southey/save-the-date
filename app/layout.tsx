@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { wedding } from "@/lib/wedding";
 import "./globals.css";
 
@@ -27,7 +28,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+type RootLayoutProps = {
+  children: ReactNode;
+};
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full font-sans bg-[#f4ede2]">{children}</body>

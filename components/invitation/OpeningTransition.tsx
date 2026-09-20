@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Envelope } from "@/components/invitation/Envelope";
 import { InvitationCard } from "@/components/invitation/InvitationCard";
@@ -18,6 +18,20 @@ export function OpeningTransition({ onComplete, onSkip }: OpeningTransitionProps
   const [cardReveal, setCardReveal] = useState(false);
   const [transitionOut, setTransitionOut] = useState(false);
   const [opened, setOpened] = useState(false);
+  const timeoutIds = useRef<number[]>([]);
+
+  useEffect(
+    () => () => {
+      timeoutIds.current.forEach((id) => window.clearTimeout(id));
+      timeoutIds.current = [];
+    },
+    [],
+  );
+
+  const schedule = (callback: () => void, delay: number) => {
+    const id = window.setTimeout(callback, delay);
+    timeoutIds.current.push(id);
+  };
 
   const handleOpen = () => {
     if (opened) return;
@@ -26,19 +40,19 @@ export function OpeningTransition({ onComplete, onSkip }: OpeningTransitionProps
     if (reduceMotion) {
       setReleased(true);
       setCardReveal(true);
-      window.setTimeout(onComplete, 220);
+      schedule(onComplete, 220);
       return;
     }
 
     setPressed(true);
-    window.setTimeout(() => {
+    schedule(() => {
       setPressed(false);
       setReleased(true);
     }, 180);
-    window.setTimeout(() => setFlapOpen(true), 320);
-    window.setTimeout(() => setCardReveal(true), 700);
-    window.setTimeout(() => setTransitionOut(true), 1550);
-    window.setTimeout(onComplete, 2450);
+    schedule(() => setFlapOpen(true), 320);
+    schedule(() => setCardReveal(true), 700);
+    schedule(() => setTransitionOut(true), 1550);
+    schedule(onComplete, 2450);
   };
 
   return (

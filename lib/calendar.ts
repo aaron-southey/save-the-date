@@ -42,13 +42,19 @@ const buildIcsContent = ({
 }: CalendarConfig): string => {
   const uid = `${Date.now()}@save-the-date`;
   const created = formatUtcStamp(new Date());
+  const hasStart = Boolean(start);
+  const hasEnd = Boolean(end);
 
-  const isAllDay = !start || !end;
+  if (hasStart !== hasEnd) {
+    throw new Error("Timed calendar events require both start and end times.");
+  }
+
+  const isAllDay = !hasStart && !hasEnd;
   const eventLines = isAllDay
     ? [`DTSTART;VALUE=DATE:${toYmd(date)}`, `DTEND;VALUE=DATE:${nextDayYmd(date)}`]
     : [
-        `DTSTART;TZID=${timezone}:${buildDateTime(date, start)}`,
-        `DTEND;TZID=${timezone}:${buildDateTime(date, end)}`,
+        `DTSTART;TZID=${timezone}:${buildDateTime(date, start!)}`,
+        `DTEND;TZID=${timezone}:${buildDateTime(date, end!)}`,
       ];
 
   return [
