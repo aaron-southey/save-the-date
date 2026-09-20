@@ -84,6 +84,10 @@ const buildIcsContent = ({
   }
 
   const isAllDay = !hasStart && !hasEnd;
+  if (!isAllDay && timezone !== "Europe/London") {
+    throw new Error("Timed calendar events currently support Europe/London only.");
+  }
+
   const timezoneLines =
     !isAllDay && timezone === "Europe/London"
       ? [

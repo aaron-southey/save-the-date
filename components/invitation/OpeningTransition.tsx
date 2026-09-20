@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Envelope } from "@/components/invitation/Envelope";
 import { InvitationCard } from "@/components/invitation/InvitationCard";
 
@@ -77,31 +77,28 @@ export function OpeningTransition({ onComplete, onSkip, invitee }: OpeningTransi
         Skip intro
       </button>
 
-      <AnimatePresence>
-        <motion.div
-          className="relative"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <Envelope
-            onOpen={handleOpen}
-            pressed={pressed}
-            released={released}
-            flapOpen={flapOpen}
-            disabled={opened}
-            invitee={invitee}
-          />
+      <motion.div
+        className="relative"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <Envelope
+          onOpen={handleOpen}
+          pressed={pressed}
+          released={released}
+          flapOpen={flapOpen}
+          disabled={opened}
+          invitee={invitee}
+        />
 
-          <InvitationCard
-            reveal={cardReveal}
-            transitionOut={transitionOut}
-            invitee={invitee}
-            focusRef={cardRef}
-          />
-        </motion.div>
-      </AnimatePresence>
+        <InvitationCard
+          reveal={cardReveal}
+          transitionOut={transitionOut}
+          invitee={invitee}
+          focusRef={cardRef}
+        />
+      </motion.div>
     </section>
   );
 }

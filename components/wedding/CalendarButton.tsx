@@ -11,8 +11,11 @@ export function CalendarButton() {
     try {
       downloadWeddingCalendarEvent();
       setMessage("If your calendar does not open automatically, use the downloaded .ics file.");
-    } catch {
-      setMessage("Calendar configuration is incomplete. Please provide both start and end times, or leave both empty for an all-day event.");
+    } catch (error) {
+      const fallbackMessage =
+        "Calendar configuration is incomplete. Please provide both start and end times, or leave both empty for an all-day event.";
+      const errorMessage = error instanceof Error ? error.message : fallbackMessage;
+      setMessage(errorMessage);
     }
   };
 
