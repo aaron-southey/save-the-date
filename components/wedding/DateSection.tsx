@@ -10,7 +10,7 @@ export function DateSection() {
   return (
     <section className="mx-auto w-full max-w-6xl px-6 py-24 sm:px-10 md:py-32" id="date">
       <p className="text-xs uppercase tracking-[0.26em] text-[#756a63]">The Date</p>
-      <div className="mt-8 grid gap-3 font-serif text-7xl leading-none text-[#2f2926] sm:grid-cols-3 sm:text-8xl">
+      <div className="mt-8 grid grid-cols-3 gap-2 font-serif text-5xl leading-none text-[#2f2926] sm:gap-3 sm:text-8xl">
         {[
           { value: day, key: "day" },
           { value: month, key: "month" },
