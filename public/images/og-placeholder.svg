@@ -1,0 +1,12 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#2F2826"/>
+  <rect width="1200" height="630" fill="url(#og)" fill-opacity="0.75"/>
+  <text x="50%" y="46%" dominant-baseline="middle" text-anchor="middle" fill="#F4EBDD" font-size="72" font-family="Georgia">Aaron &amp; Charlotte</text>
+  <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" fill="#E8D9C7" font-size="30" font-family="Arial" letter-spacing="7">28 APRIL 2028 · COOMBE LODGE</text>
+  <defs>
+    <radialGradient id="og" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 315) rotate(90) scale(380 780)">
+      <stop stop-color="#8C7A6C"/>
+      <stop offset="1" stop-color="#2A2523"/>
+    </radialGradient>
+  </defs>
+</svg>

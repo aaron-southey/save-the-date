@@ -1,0 +1,11 @@
+<svg width="1800" height="1200" viewBox="0 0 1800 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1800" height="1200" fill="#35312E"/>
+  <rect width="1800" height="1200" fill="url(#v)" fill-opacity="0.6"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#EFE3D4" font-size="56" font-family="Georgia">[ADD VENUE PHOTO]</text>
+  <defs>
+    <linearGradient id="v" x1="225" y1="0" x2="1535" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8A796B"/>
+      <stop offset="1" stop-color="#2A2523"/>
+    </linearGradient>
+  </defs>
+</svg>
