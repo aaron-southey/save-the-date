@@ -41,7 +41,9 @@ export function OpeningTransition({ onComplete, onSkip, invitee }: OpeningTransi
 
     if (reduceMotion) {
       setReleased(true);
+      setFlapOpen(true);
       setCardReveal(true);
+      setTransitionOut(true);
       schedule(onComplete, 260);
       return;
     }

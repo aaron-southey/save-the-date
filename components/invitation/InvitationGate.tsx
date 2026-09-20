@@ -32,6 +32,7 @@ export function InvitationGate() {
   };
 
   const replayIntro = () => {
+    window.localStorage.removeItem(storageKey);
     setShowIntro(true);
   };
 
