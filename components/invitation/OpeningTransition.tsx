@@ -20,6 +20,7 @@ export function OpeningTransition({ onComplete, onSkip, invitee }: OpeningTransi
   const [transitionOut, setTransitionOut] = useState(false);
   const [opened, setOpened] = useState(false);
   const timeoutIds = useRef<number[]>([]);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(
     () => () => {
@@ -56,6 +57,12 @@ export function OpeningTransition({ onComplete, onSkip, invitee }: OpeningTransi
     schedule(onComplete, 2450);
   };
 
+  useEffect(() => {
+    if (!cardReveal) return;
+    const raf = window.requestAnimationFrame(() => cardRef.current?.focus());
+    return () => window.cancelAnimationFrame(raf);
+  }, [cardReveal]);
+
   return (
     <section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden px-4 paper-bg">
       <div className="paper-grain pointer-events-none absolute inset-0" />
@@ -85,7 +92,12 @@ export function OpeningTransition({ onComplete, onSkip, invitee }: OpeningTransi
             invitee={invitee}
           />
 
-          <InvitationCard reveal={cardReveal} transitionOut={transitionOut} invitee={invitee} />
+          <InvitationCard
+            reveal={cardReveal}
+            transitionOut={transitionOut}
+            invitee={invitee}
+            focusRef={cardRef}
+          />
         </motion.div>
       </AnimatePresence>
     </section>

@@ -1,17 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { RefObject } from "react";
 import { wedding } from "@/lib/wedding";
 
 type InvitationCardProps = {
   reveal: boolean;
   transitionOut: boolean;
   invitee: string | null;
+  focusRef: RefObject<HTMLDivElement | null>;
 };
 
-export function InvitationCard({ reveal, transitionOut, invitee }: InvitationCardProps) {
+export function InvitationCard({ reveal, transitionOut, invitee, focusRef }: InvitationCardProps) {
   return (
     <motion.div
+      ref={focusRef}
+      tabIndex={-1}
+      aria-label="Invitation details"
       className="absolute left-1/2 top-1/2 z-10 w-[min(86vw,620px)] -translate-x-1/2 rounded-sm border border-[#e2d6c8] bg-[#f9f4ea] px-8 py-14 text-center shadow-[0_30px_60px_rgba(36,30,24,0.22)] sm:px-12"
       initial={{ y: 40, scale: 0.92, opacity: 0 }}
       animate={{

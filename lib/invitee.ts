@@ -44,3 +44,31 @@ export const getInviteeFromSearchParams = (params: URLSearchParams): string | nu
   if (splitNames.length >= 2) return `${splitNames[0]} & ${splitNames[1]}`;
   return splitNames[0] ?? null;
 };
+
+export const getInviteeStorageKey = (params: URLSearchParams): string => {
+  const invitee = getInviteeFromSearchParams(params);
+  const identity = invitee
+    ? invitee.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
+    : "default";
+  return `weddingInvitationOpened:${identity}`;
+};
+
+type SearchParamValue = string | string[] | undefined;
+
+export const getInviteeFromQueryObject = (
+  query: Record<string, SearchParamValue>,
+): string | null => {
+  const params = new URLSearchParams();
+
+  Object.entries(query).forEach(([key, value]) => {
+    if (Array.isArray(value)) {
+      if (value[0]) params.set(key, value[0]);
+      return;
+    }
+    if (typeof value === "string") {
+      params.set(key, value);
+    }
+  });
+
+  return getInviteeFromSearchParams(params);
+};
