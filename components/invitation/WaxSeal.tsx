@@ -16,7 +16,7 @@ export function WaxSeal({ onOpen, isPressed, isReleased, disabled }: WaxSealProp
       aria-label="Open invitation"
       onClick={onOpen}
       disabled={disabled}
-      className="absolute left-1/2 top-[65%] z-20 h-[58px] w-[58px] -translate-x-1/2 rounded-full border border-[#40271b]/80 bg-[radial-gradient(circle_at_30%_26%,#7a523d,#5f3b28_56%,#43281b)] shadow-[0_16px_28px_rgba(38,22,16,0.46)] outline-none focus-visible:ring-2 focus-visible:ring-[#8f7461] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f5efe4] disabled:cursor-not-allowed"
+      className="absolute left-1/2 top-[65%] z-20 h-[58px] w-[58px] -translate-x-1/2 rounded-full border border-[#6b4a35]/80 bg-[radial-gradient(circle_at_30%_26%,#a57a5e,#855d43_56%,#64422f)] shadow-[0_16px_28px_rgba(57,40,30,0.4)] outline-none focus-visible:ring-2 focus-visible:ring-[#8f7461] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f5efe4] disabled:cursor-not-allowed"
       animate={{
         scale: isPressed ? 0.92 : isReleased ? 0.5 : 1,
         opacity: isReleased ? 0 : 1,
@@ -24,7 +24,7 @@ export function WaxSeal({ onOpen, isPressed, isReleased, disabled }: WaxSealProp
       }}
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
     >
-      <span className="text-[11px] font-serif tracking-[0.16em] text-[#f5e9de]">A&C</span>
+      <span className="text-[11px] font-serif tracking-[0.16em] text-[#fbf2e9]">A&C</span>
     </motion.button>
   );
 }
